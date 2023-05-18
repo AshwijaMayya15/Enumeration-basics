@@ -1,0 +1,119 @@
+enum Countries {
+    india("NEWDELHI",29),usa("washington",50),russia("moscow",34),brazil("riodejanierio",23),china;
+    private String capital;
+    private int noofstates;
+    
+    Countries()
+    {
+        //constructor for china
+    }
+    Countries(String capital,int noofstates)
+    {
+        this.capital=capital;
+        this.noofstates=noofstates;
+    }
+    
+    public String getCapital()
+    {
+        return this.capital;
+    }
+    public void setCapital(String capital)
+    {
+        this.capital=capital;
+    }
+    public int getNoofstates()
+    {
+        return this.noofstates;
+    }
+    public void setNoofstates(int noofstates)
+    {
+        this.noofstates=noofstates;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+    	Countries i=Countries.india;
+    	Countries u=Countries.usa;
+    	
+    	//Using setters to provide missing values
+    	Countries c=Countries.china;
+    	c.setCapital("Beijing");
+    	c.setNoofstates(41);
+    	System.out.println("New values set for china are " + c.getCapital() + " and " +c.getNoofstates());
+    	System.out.println("------------------------");
+    	
+    	//Using switch case
+    	switch (i) {
+            case india:
+                System.out.println("THE NAME OF THE COUNTRY IS INDIA");
+                break;
+            case usa:
+                System.out.println("THE NAME OF THE COUNTRY IS USA");
+                break;
+            case russia:
+                System.out.println("THE NAME OF THE COUNTRY IS RUSSIA");
+                break;
+            case brazil:
+                System.out.println("THE NAME OF THE COUNTRY IS BRAZIL");
+                break;
+            default:
+                System.out.println("Unknown Country");
+                break;
+        }
+        System.out.println("------------------------");
+
+        
+        //Using if-else 
+         if (u == Countries.india) {
+            System.out.println("MAKE SURE TO PAY A VISIT TO PM MODI");
+        } else if (u == Countries.usa) {
+            System.out.println("BEWARE OF TRUMP");
+        } else {
+            System.out.println("ENJOY OTHER COUNTRY VISITS");
+        }
+        System.out.println("------------------------");
+        
+        //USING equals() method
+        Countries b=Countries.brazil;
+        if (b.equals(Countries.usa)) {
+            System.out.println("COUNTRY IS USA");
+        } else {
+            System.out.println("COUNTRY IS NOT USA");
+        }
+        System.out.println("------------------------");
+
+        
+        
+        //USING ordinal() method
+        System.out.println("The ordinal of BRAZIL is " + Countries.brazil.ordinal());
+        System.out.println("------------------------");
+
+        
+        //USING valueof() method
+        Countries r=Countries.valueOf("russia");
+        System.out.println(r.getCapital());
+        System.out.println(r.getNoofstates());
+        System.out.println("------------------------");
+
+        
+        //Using values() method
+        Countries[] a = Countries.values();
+        for (Countries f : a) {
+            System.out.println(" Capital name is=" + f.getCapital() + " and no of states in that country is " +f.getNoofstates());
+        }
+         System.out.println("------------------------");
+
+        
+        //USING compareTo() method
+        int comparisonResult = Countries.usa.compareTo(Countries.brazil);
+        if (comparisonResult < 0) {
+            System.out.println("USA comes before BRAZIL.");
+        } else if (comparisonResult > 0) {
+            System.out.println("USA comes after BRAZIL.");
+        } else {
+            System.out.println("USA and BRAZIL are the same.");
+        }
+
+	}
+}
